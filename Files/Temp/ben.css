@@ -1,0 +1,96 @@
+
+
+
+
+/* ========================CHARACTER=============================== */
+
+
+#sprite{
+    position: absolute;
+    left:100px;
+    bottom:90px;
+    /* background:url("bf1.png"); */
+    /* background:url("DiamondHead1.png"); */
+
+    background:url("df.png"); 
+
+
+
+
+    /* background:url("tpWalk.jpg"); */
+    /* background-color: white; */
+    /* width:153.166667px; */
+    /* width:500.166667px; */
+    
+    /* height:250px; */
+
+
+    /* width: 284px; */
+
+    /* DIAMOND HEAD 1 */
+    /* width: 294px; */
+    /* height: 3500px; */
+
+    /*================ DIAMOND HEAD 2====================== */
+
+    width: 365px;
+    height: 350px;
+
+
+    /* -webkit- */
+    animation: sa 3s  steps(11) infinite backwards;
+    
+}
+/* -webkit- */
+@keyframes sa{
+    from{background-position: 0px;}
+    /* 70%{} */
+    to{background-position: -3850px;}
+}
+
+
+
+
+
+
+body,html{
+    /* overflow: hidden; */
+    margin: 0;
+    padding: 0;
+    height:100%;
+    width: 100%;
+}
+#sky{
+
+    
+    background-color: skyblue;
+    height: 40%;
+    
+}
+
+#green{
+    background-color: rgb(9, 116, 9);
+    
+    height:30%;
+
+}
+
+#road{
+    background-color: grey;
+    
+    height:30%;
+}
+
+#line{
+    border-bottom: 10px   dashed white; 
+    width:150%;
+    height: 50%;
+     /* border-top: thin; */
+
+     animation: lm 5s linear infinite both;
+}
+
+@keyframes lm{
+    from{transform: translateX(0);}
+    to{transform: translateX(-500px);}
+}

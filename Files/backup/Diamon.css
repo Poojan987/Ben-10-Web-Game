@@ -1,0 +1,171 @@
+
+:root {
+    --pixel-size: 7;
+ }
+ 
+ body {
+    background: white;
+    overflow: hidden;
+    
+ }
+ 
+ .div {
+   
+   left:calc(12.5px*var(--pixel-size));
+   
+   bottom:calc(-5px*var(--pixel-size));
+     width: calc(21px * var(--pixel-size));
+    height: calc(50px * var(--pixel-size)); 
+    overflow: hidden;
+    position: absolute;
+    margin: 4em auto;
+    background-color: red;
+    
+ }
+ #diamonds{
+   
+   width:calc(15.5px*var(--pixel-size));
+   
+   
+    left:calc(56.25px*var(--pixel-size)); 
+    /* top:calc(35px*var(--pixel-size));  */
+    bottom:calc(35px*var(--pixel-size));
+   position: absolute;
+   animation:diamondFire linear 10s forwards;
+}
+ .sprite {
+
+    
+    background:url(Dhfinal1.png);
+    /* background-color:brown ; */
+    animation: transform 3s steps(2) infinite;
+    width: calc(145.5px * var(--pixel-size));
+    /* position: absolute; */
+    
+ }
+
+ .idle{
+   top:calc(-100px*var(--pixel-size));
+   left:calc(-5.0px*var(--pixel-size));
+   
+   width:calc(145.5px*var(--pixel-size));
+   position: absolute;
+   }
+
+
+
+.walk{
+   
+   top: calc(-150px * var(--pixel-size));
+   left:  calc(-6px*var(--pixel-size));
+   /* -30px */
+   animation:walk 1s steps(4) infinite;
+   width: calc(145.5px * var(--pixel-size));
+   position: absolute;
+   /* background:url(Dhfinal1.png); */
+   /* background-position-x: 50px; */
+   /* background-position-y: 90px; */
+   background-size: 900px;
+}
+
+
+
+.attack{
+   top:calc(-200px*var(--pixel-size));
+   left:calc(-5px*var(--pixel-size));
+   animation: attack 1s steps(3) 1 ;
+   width: calc(145.5px * var(--pixel-size));
+   position: absolute;
+   
+}
+
+@keyframes diamondFire{
+   from {
+      transform: translate3d(0px,0,0)
+   }
+   to {
+      transform: translate3d(10000px,0,0)
+   }
+}
+@keyframes attack{
+   from {
+      transform: translate3d(0px,0,0)
+   }
+   to {
+      transform: translate3d(-85%,0,0)
+   }
+   
+}
+ @keyframes transform{
+   from {
+      transform: translate3d(0px,0,0)
+   }
+   to {
+      transform: translate3d(-50%,0,0)
+   }
+}
+
+@keyframes walk{
+   from {
+      transform: translate3d(0px,0,0)
+   }
+   to {
+      transform: translate3d(calc(-83px*var(--pixel-size)),0,0)
+   }
+}
+
+
+ /* ============SHADOW=================== */
+ 
+ 
+ .pixelart {
+    image-rendering: crisp-edges;
+    
+ }
+ 
+ 
+ 
+ 
+ body,html{
+   /* overflow: hidden; */
+   margin: 0;
+   padding: 0;
+   height:100%;
+   width: 100%;
+}
+#sky{
+
+   
+   background-color: skyblue;
+   height: 40%;
+   
+}
+
+#green{
+   background-color: rgb(9, 116, 9);
+   
+   height:30%;
+
+}
+
+#road{
+   background-color: grey;
+   
+   height:30%;
+}
+
+#line{
+   border-bottom: 10px   dashed white; 
+   width:1500%;
+   height: 50%;
+    /* border-top: thin; */
+
+    animation: lm 3s linear infinite both;
+}
+
+@keyframes lm{
+   from{transform: translateX(0);}
+   to{transform: translateX(-500px);}
+}
+
+

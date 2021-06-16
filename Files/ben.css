@@ -1,0 +1,152 @@
+
+:root {
+   --pixel-sizeb: 6;
+}
+
+body {
+   background: white;
+   overflow: hidden; 
+   position: relative;
+}
+
+
+/* ========================CHARACTER=============================== */
+
+
+/* .spriteDiv{
+  left:calc(12.5px*var(--pixel-sizeb));
+  
+  bottom:calc(2px*var(--pixel-sizeb));
+  width: calc(13px * var(--pixel-sizeb));
+  height: calc(25px * var(--pixel-sizeb)); 
+   overflow: hidden;
+   position: absolute;
+   margin: 4em auto;
+   background-color: red;
+} */
+/* ==============CONTAINER================= */
+#benContainer{
+   left:calc(12.5px*var(--pixel-sizeb));
+     
+     bottom:calc(18px*var(--pixel-sizeb));
+     /* bottom:calc(2px*var(--pixel-sizeb)); */
+     /* margin: 4em auto; */
+  /* background-color:red; */
+  /* position: relative; */
+}
+
+/* ==============WALK================= */
+.benWalk{
+  
+  width: calc(13px * var(--pixel-sizeb));
+  height: calc(25px * var(--pixel-sizeb)); 
+  animation: benWalkAnime steps(4) 1s infinite;
+ 
+ position: absolute;
+
+ background:url(BenLatest.png)  calc(3px*var(--pixel-sizeb)) calc(-25px * var(--pixel-sizeb));
+ background-repeat: no-repeat;
+
+ background-size: calc(58px*var(--pixel-sizeb));
+ /* margin: 4em auto; */
+
+}
+/* ==============TRANSFORM================= */
+.benTransform{
+  width: calc(15px * var(--pixel-sizeb));
+  height: calc(29px * var(--pixel-sizeb)); 
+  animation: benTransformAnime steps(3) 1.5s   ;
+ 
+ position: absolute;
+
+ background:url(BenLatest.png)  calc(1px*var(--pixel-sizeb)) calc(-79px * var(--pixel-sizeb));
+ background-repeat: no-repeat;
+
+ background-size: calc(58px*var(--pixel-sizeb));
+}
+@keyframes benTransformAnime{
+  from {
+     background-position-x:calc(1px*var(--pixel-sizeb));   
+  }
+  to {
+     background-position-x:105%;
+  }
+}
+
+@keyframes benWalkAnime{
+  from {
+
+     background-position-x:calc(3px*var(--pixel-sizeb));   
+  }
+  to {
+
+background-position-x:calc(-55px*var(--pixel-sizeb));   
+  }
+  
+}
+
+/* ==================================EXTRA======================================== */
+
+
+.pixelart {
+   image-rendering: crisp-edges;
+   
+}
+
+
+
+
+body,html{
+  /* overflow: hidden; */
+  margin: 0;
+  padding: 0;
+  height:100%;
+  width: 100%;
+}
+#sky{
+
+  
+  background-color: skyblue;
+  height: 40%;
+  
+}
+
+#green{
+  background-color: rgb(9, 116, 9);
+  
+  height:30%;
+
+}
+
+#road{
+  background-color: grey;
+  
+  height:30%;
+}
+
+#line{
+  border-bottom: 10px   dashed white; 
+  width:150000%;
+  height: 50%;
+   /* border-top: thin; */
+
+   animation: lm 10000s linear infinite ;
+}
+
+@keyframes lm{
+  from{transform: translateX(0);}
+  to{transform: translateX(-100%);}
+}
+
+
+.mainBody.paused * { 
+    
+  animation-play-state: paused;
+}
+
+.mainBody.start * {
+
+
+animation-play-state: running;
+
+}

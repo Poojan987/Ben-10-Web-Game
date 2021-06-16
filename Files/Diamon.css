@@ -1,0 +1,148 @@
+
+:root {
+   --pixel-size: 6;
+}
+
+body {
+   background: white;
+   /* overflow: hidden; */
+   position: relative;
+}
+
+/* .div {
+  
+  left:calc(12.5px*var(--pixel-size));
+  
+  bottom:calc(-5px*var(--pixel-size));
+    width: calc(21px * var(--pixel-size));
+   height: calc(50px * var(--pixel-size)); 
+   overflow: hidden;
+   position: absolute;
+   margin: 4em auto;
+   background-color: red;
+   
+} */
+.diamonds{
+  
+  width:calc(15.5px*var(--pixel-size));
+   bottom:calc(42px*var(--pixel-size));
+  position: absolute;
+  animation:diamondFire linear 10s forwards;
+}
+
+/* =====================================TRANSFORM============================================= */
+.transform {
+
+   width: calc(40px * var(--pixel-size));
+   height: calc(50px * var(--pixel-size)); 
+  
+  
+   
+   animation: transform 1s steps(2) 2 forwards;
+
+  position: absolute;
+
+  background:url(Dhfinal1.png)  ;
+  background-repeat: no-repeat;
+
+  background-size: calc(150px*var(--pixel-size));
+   
+}
+
+.idle{
+  top:calc(-100px*var(--pixel-size));
+  left:calc(-5.0px*var(--pixel-size));
+  
+  width:calc(145.5px*var(--pixel-size));
+  position: absolute;
+  }
+
+  #tp{
+     
+    left:calc(8px*var(--pixel-size));
+      
+      bottom:calc(12px*var(--pixel-size));
+      /* background-color:red; */
+      
+   }
+/* =============================WALKKKKKKKKKKKKKKKKKKKKKKKKKKK======== */
+.walk{
+  
+ 
+  animation:walk 1s   steps(4)  infinite;
+  width: calc(21px * var(--pixel-size));
+   height: calc(50px * var(--pixel-size)); 
+  position: absolute;
+  background:url(Dhfinal1.png)  calc(-6px*var(--pixel-size)) calc(-150px * var(--pixel-size));
+  background-repeat: no-repeat;
+
+  background-size: calc(150px*var(--pixel-size));
+}
+
+/* =============================ATTTTTACKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK======== */
+
+.attack{
+  /* top:calc(-200px*var(--pixel-size));
+  left:calc(-5px*var(--pixel-size)); */
+  width: calc(40px * var(--pixel-size));
+   height: calc(50px * var(--pixel-size)); 
+  animation: attack 1s steps(3) infinite ;
+  
+  position: absolute;
+
+  background:url(Dhfinal1.png)  calc(-5px*var(--pixel-size)) calc(-200px * var(--pixel-size));
+  background-repeat: no-repeat;
+
+  background-size: calc(150px*var(--pixel-size));
+  
+  
+}
+
+@keyframes diamondFire{
+  from {
+     transform: translate3d(calc(56.25px*var(--pixel-size)),0,0)
+  }
+  to {
+     transform: translate3d(10000px,0,0)
+  }
+}
+@keyframes attack{
+  from {
+   background-position-x:calc(-5px*var(--pixel-size));      
+  }
+  to {
+   background-position-x:calc(-135px*var(--pixel-size));      
+  }
+  
+}
+@keyframes transform{
+  from {
+    background-position-x:0px;   
+  }
+  to {
+     
+     background-position-x:70%;   
+  }
+}
+
+@keyframes walk{
+  from {
+
+   background-position-x:calc(-6px*var(--pixel-size));      
+  }
+  to {
+   background-position-x:calc(-91px*var(--pixel-size));
+  }
+}
+
+/* ============SHADOW=================== */
+
+
+.pixelart {
+   image-rendering: crisp-edges;
+   
+}
+
+
+
+

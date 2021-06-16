@@ -1,0 +1,84 @@
+:root{
+    --pixel-sizeH:7;
+}
+
+#hybrid{
+
+
+    right:calc(-50px*var(--pixel-sizeH));
+    /* right:calc(0px*var(--pixel-sizeH)); */
+    bottom: calc(10px*var(--pixel-sizeH));
+/*     background-color: red; */
+
+}
+/* #hybridAttack{} */
+@keyframes hybridConatainerAnime{
+    from{
+        /* right:calc(5px*var(--pixel-sizeH)); */
+        /* transform: translateX(-5px*var(--pixel-sizeH)); */
+        
+    }
+    to{
+        /* left:calc(12.5px*var(--pixel-sizeb)); */
+        /* transform: translateX(12.5px*var(--pixel-sizeb)); */
+    }
+    from{transform: translateX(0px);}
+  to{transform: translateX(-3000%);}
+}
+
+.hybridAttack{
+    background:url(HybridFinal3.png) calc(0px*var(--pixel-sizeH)) calc(-223px*var(--pixel-sizeH));
+    background-size: calc(349px*var(--pixel-sizeH)) ;
+    width: calc(25.9px*var(--pixel-sizeH));
+    height: calc(40px*var(--pixel-sizeH));
+    position: absolute;
+    animation:hybridAttackAnime 1s steps(12)     reverse 1 ;
+}
+@keyframes hybridAttackAnime{
+    from{
+        /*     background-position-x:calc(-42px*var(--pixel-sizeH)) */
+         background-position-x:0px; 
+        }
+        
+        
+        to{
+            /* background-position-x: calc(-31.5px*var(--pixel-sizeH)); */
+        /*     background-position-x: calc(-344.7px*var(--pixel-sizeH)); */
+         background-position-x:108%; 
+        
+        }
+}
+
+
+.hybridWalk{
+    
+    background:url(HybridFinal3.png) calc(0px*var(--pixel-sizeH)) calc(-43px*var(--pixel-sizeH));
+    background-size: calc(349px*var(--pixel-sizeH)) ;
+    width: calc(25.9px*var(--pixel-sizeH));
+    height: calc(39px*var(--pixel-sizeH));
+    position: absolute;
+    
+    animation:hybridWalkAnime steps(12) 1s  infinite forwards reverse,hybridConatainerAnime linear 15s 1 forwards; 
+    
+}
+
+@keyframes hybridWalkAnime{
+0%{
+/*     background-position-x:calc(-42px*var(--pixel-sizeH)) */
+ background-position-x:0px; 
+}
+
+
+100%{
+    /* background-position-x: calc(-31.5px*var(--pixel-sizeH)); */
+/*     background-position-x: calc(-344.7px*var(--pixel-sizeH)); */
+ background-position-x:97%; 
+
+}
+
+}
+
+
+
+
+
