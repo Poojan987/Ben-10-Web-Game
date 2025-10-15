@@ -73,7 +73,7 @@ body {
   width: calc(21px * var(--pixel-size));
    height: calc(50px * var(--pixel-size)); 
   position: absolute;
-  background:url(Dhfinal1.png)  calc(-6px*var(--pixel-size)) calc(-150px * var(--pixel-size));
+  background:url(DHfinal1.png)  calc(-6px*var(--pixel-size)) calc(-150px * var(--pixel-size));
   background-repeat: no-repeat;
 
   background-size: calc(150px*var(--pixel-size));
@@ -90,7 +90,7 @@ body {
   
   position: absolute;
 
-  background:url(Dhfinal1.png)  calc(-5px*var(--pixel-size)) calc(-200px * var(--pixel-size));
+  background:url(DHfinal1.png)  calc(-5px*var(--pixel-size)) calc(-200px * var(--pixel-size));
   background-repeat: no-repeat;
 
   background-size: calc(150px*var(--pixel-size));
