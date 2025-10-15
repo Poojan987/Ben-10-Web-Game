@@ -1,6 +1,12 @@
 # Ben-10 Web Game
 
 Live demo: https://ben-10-web-game.vercel.app/
+Images:
+
+<img width="1906" height="903" alt="image" src="https://github.com/user-attachments/assets/be741472-d5f6-4664-b79f-343ac6d6d960" />
+
+
+<img width="1910" height="890" alt="image" src="https://github.com/user-attachments/assets/6062a83b-09f6-4f36-8287-2d05793ef08e" />
 
 This repository contains a small browser game inspired by the Ben 10 franchise. It's a compact, front-end-focused project built with vanilla HTML, CSS and JavaScript and deployed on Vercel. The goal of this README is to give interviewers a quick, high-signal overview of the project, the technical choices, what I implemented, and how to run it locally.
 
