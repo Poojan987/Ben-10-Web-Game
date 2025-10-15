@@ -10,6 +10,25 @@
     <link href="Hybrid.css" rel="stylesheet" />
   </head>
   <body class="mainBody" onkeypress="uniCharCode(event)">
+    <div
+      id="scoreBar"
+      style="
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 40px;
+        background: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        z-index: 999;
+      "
+    >
+      Score:
+      <span id="score" style="margin-left: 8px; font-weight: 700">0</span>
+    </div>
     <div id="sky"></div>
     <div id="green"></div>
     <div id="road">

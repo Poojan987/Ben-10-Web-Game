@@ -138,6 +138,14 @@ function diamonds() {
   diamonds.setAttributeNode(diamondsClass);
 }
 var spawnHybrid = window.setInterval(start, 5000);
+// Score tracking
+var score = 0;
+function updateScoreDisplay() {
+  try {
+    var s = document.getElementById("score");
+    if (s) s.textContent = score;
+  } catch (e) {}
+}
 
 // GET WINDOW RELATIVE OFFSET
 
@@ -181,9 +189,34 @@ function start() {
         road.removeChild(d[0]);
         // d.style.visibility="none";
       } else if (coordsD.right - 70 >= coordsHybrid.left) {
+        // Diamond hit the hybrid: increment score and kill hybrid
         hybrid.classList.remove("hybridWalk");
-        road.removeChild(d[0]);
+        hybrid.classList.add("hybridDead");
+        try {
+          road.removeChild(d[0]);
+        } catch (e) {}
+        // stop the hybrid movement
         window.clearInterval(window.hybridInterval);
+
+        // increment score and update display
+        score += 1;
+        updateScoreDisplay();
+
+        // hide/remove hybrid visually after short delay and respawn a fresh hybrid
+        setTimeout(function () {
+          try {
+            // reset hybrid classes and position
+            hybrid.className = "pixelart";
+            hybrid.style.left = "";
+            // ensure hybrid is present in DOM (if removed earlier)
+            if (!document.getElementById("hybrid")) {
+              var newH = document.createElement("div");
+              newH.id = "hybrid";
+              newH.className = "pixelart";
+              document.getElementById("road").appendChild(newH);
+            }
+          } catch (e) {}
+        }, 300);
       }
     }
   }, 15);
