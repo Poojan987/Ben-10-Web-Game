@@ -1,0 +1,53 @@
+:root{
+    --pixel-sizeH:7;
+}
+body{
+    /* overflow: scroll; */
+}
+#hybrid{
+
+    right:calc(-50px*var(--pixel-sizeH));
+    bottom: calc(14px*var(--pixel-sizeH));
+/*     background-color: red; */
+
+}
+@keyframes hybridConatainerAnime{
+    from{
+        /* right:calc(5px*var(--pixel-sizeH)); */
+        /* transform: translateX(-5px*var(--pixel-sizeH)); */
+        
+    }
+    to{
+        /* left:calc(12.5px*var(--pixel-sizeb)); */
+        /* transform: translateX(12.5px*var(--pixel-sizeb)); */
+    }
+    from{transform: translateX(0px);}
+  to{transform: translateX(-3000%);}
+}
+.hybridWalk{
+    
+    background:url(HybridFinal2.png) calc(0px*var(--pixel-sizeH)) calc(-45px*var(--pixel-sizeH));
+    background-size: calc(349px*var(--pixel-sizeH)) ;
+    width: calc(25.9px*var(--pixel-sizeH));
+    height: calc(40px*var(--pixel-sizeH));
+    position: absolute;
+    
+    animation:hybridWalkAnime steps(12) 1s  infinite forwards reverse,hybridConatainerAnime linear 15s 5s infinite; ;
+    
+}
+
+@keyframes hybridWalkAnime{
+0%{
+/*     background-position-x:calc(-42px*var(--pixel-sizeH)) */
+ background-position-x:0px; 
+}
+
+
+100%{
+    /* background-position-x: calc(-31.5px*var(--pixel-sizeH)); */
+/*     background-position-x: calc(-344.7px*var(--pixel-sizeH)); */
+ background-position-x:108%; 
+
+}
+
+}
