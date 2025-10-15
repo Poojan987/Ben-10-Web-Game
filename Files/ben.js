@@ -1,5 +1,7 @@
 var spriteBen = document.getElementById("benContainer");
 var rightPos = rightMostPos(spriteBen);
+// Flag to track whether the game is active. Set to false when game over.
+var gameRunning = true;
 
 // Show GameStart initially and hide after 5 seconds
 (function manageGameStartVisibility() {
@@ -16,7 +18,14 @@ var rightPos = rightMostPos(spriteBen);
 function uniCharCode(event) {
   var char = event.which || event.keyCode;
   console.log(char);
-
+  // If the game is over only allow restart with 'r' (114)
+  if (!gameRunning) {
+    if (char == 114) {
+      // reload page to restart quickly
+      window.location.reload();
+    }
+    return;
+  }
   if (char == 120) {
     // ===========================CHAR IS X======================================
     benClasslist = spriteBen.classList;
@@ -143,25 +152,28 @@ function start() {
 
   hybrid.classList.add("hybridWalk");
 
-  var setInterval1 = window.setInterval(() => {
+  // Keep a reference to the hybrid movement interval so it can be cleared on game over
+  window.hybridInterval = window.setInterval(() => {
     coordsHybrid = hybrid.getBoundingClientRect();
+    // Recompute player's bounds in case it changed
+    coordsBen = spriteBen.getBoundingClientRect();
     // console.log(hybrid.offsetLeft);
     // console.log(coords);
     var d = document.getElementsByClassName("diamonds");
-    if (coordsHybrid.left > 0 && coordsHybrid.left <= coordsBen.right) {
-      hybrid.classList.remove("hybridWalk");
-      hybrid.classList.add("hybridAttack");
+    // Check for intersection (collision) between hybrid and player
+    function rectsIntersect(a, b) {
+      return !(
+        a.right < b.left ||
+        a.left > b.right ||
+        a.bottom < b.top ||
+        a.top > b.bottom
+      );
+    }
 
-      // var hybridAttackId=document.createAttribute("id");
-      // hybridAttackId.value="hybridAttack";
-
-      hybrid.style.left = coordsBen.left + "px";
-      // hybrid.style.top=(coordsHybrid.bottom)+"px";
-
-      // coordsHybrid.left
-
-      window.clearInterval(setInterval1);
-      window.clearInterval(spawnHybrid);
+    if (rectsIntersect(coordsHybrid, coordsBen)) {
+      // Hybrid touched the player -> GAME OVER
+      gameOver(hybrid);
+      return;
     } else if (d[0] !== undefined) {
       var coordsD = d[0].getBoundingClientRect();
       // console.log(coordsD.left);
@@ -171,8 +183,65 @@ function start() {
       } else if (coordsD.right - 70 >= coordsHybrid.left) {
         hybrid.classList.remove("hybridWalk");
         road.removeChild(d[0]);
-        window.clearInterval(setInterval1);
+        window.clearInterval(window.hybridInterval);
       }
     }
   }, 15);
+}
+
+// Called when the hybrid touches the player. Stops the game and shows Game Over UI.
+function gameOver(hybridElement) {
+  if (!gameRunning) return;
+  gameRunning = false;
+
+  // Stop spawn and hybrid movement
+  try {
+    if (window.hybridInterval) window.clearInterval(window.hybridInterval);
+    if (typeof spawnHybrid !== "undefined") window.clearInterval(spawnHybrid);
+  } catch (e) {
+    console.warn("Error clearing intervals on game over", e);
+  }
+
+  // Pause any CSS animations (road line)
+  var body = document.getElementsByClassName("mainBody")[0];
+  var roadLine = document.getElementById("line");
+  if (roadLine) roadLine.style.animationPlayState = "paused";
+  if (body) {
+    body.classList.remove("start");
+    body.classList.add("paused");
+  }
+
+  // Optionally add hybrid attack pose and freeze its position
+  if (hybridElement) {
+    try {
+      hybridElement.classList.remove("hybridWalk");
+      hybridElement.classList.add("hybridAttack");
+      // freeze position
+      var coords = hybridElement.getBoundingClientRect();
+      hybridElement.style.left = coords.left + "px";
+    } catch (e) {}
+  }
+
+  // Create overlay
+  var overlay = document.createElement("div");
+  overlay.id = "GameOver";
+  Object.assign(overlay.style, {
+    position: "fixed",
+    left: "0",
+    top: "0",
+    width: "100%",
+    height: "100%",
+    background: "rgba(0,0,0,0.75)",
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 9999,
+    fontFamily: "sans-serif",
+    textAlign: "center",
+  });
+
+  overlay.innerHTML =
+    '<div style="font-size:48px;line-height:1.2">Game Over<br><small style="font-size:18px">Press R to restart</small></div>';
+  document.body.appendChild(overlay);
 }
