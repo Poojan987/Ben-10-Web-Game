@@ -11,9 +11,6 @@ Why this project is interesting
 - Small but complete front-end project demonstrating UI, animations, asset handling, and deployment.
 - Shows ability to structure static assets and write modular, maintainable client-side code without a framework.
 
-Live demo
-- Deployed to Vercel: https://ben-10-web-game.vercel.app/
-
 What I built (high level)
 - Interactive single-page game (client-side only).
 - Responsive layout and custom styling using CSS files in `Files/`.
